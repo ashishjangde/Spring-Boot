@@ -192,9 +192,11 @@ including those using Spring Framework's component scanning and annotation-drive
 | `mvn spring-boot:run`         | Runs a Spring Boot application directly from the source code without packaging it into a JAR or WAR file.                                                 |
 | `mvn spring-boot:build-image` | Builds a Docker image of the Spring Boot application using the Spring Boot Maven plugin.                                                                  |
 
-### Annotations Breakdown
 
-#### `@Configuration`
+
+## Annotations Breakdown
+
+### `@Configuration`
 - **Purpose:** Marks a class as a source of bean definitions.
 - **Functionality:** Indicates that the class contains methods annotated with `@Bean` that define beans to be managed by the Spring container.
 - **Example:**
@@ -206,7 +208,7 @@ including those using Spring Framework's component scanning and annotation-drive
     }
     ```
 
-#### `@Bean`
+### `@Bean`
 - **Purpose:** Defines a method that creates and returns a bean instance.
 - **Functionality:** The return value of the method becomes a bean managed by the Spring container.
 - **Example:**
@@ -218,7 +220,7 @@ including those using Spring Framework's component scanning and annotation-drive
     }
     ```
 
-#### `@Component`
+### `@Component`
 - **Purpose:** Indicates that a class is a component.
 - **Functionality:** Automatically detects and registers the class as a Spring bean.
 - **Example:**
@@ -226,59 +228,37 @@ including those using Spring Framework's component scanning and annotation-drive
     ```java
     @Component
     public class MyComponent {
-        // ... implementation
+        // ... component logic
     }
     ```
 
-#### `@Autowired`
-- **Purpose:** Injects dependencies into a bean.
-- **Functionality:** Automatically resolves and injects dependencies based on type or by name.
+### `@ConditionalOnProperty`
+- **Purpose:** Conditionally includes a bean based on the value of a property.
+- **Functionality:** The bean is only created if the specified property has the given value.
 - **Example:**
 
     ```java
-    @Autowired
-    private MyService myService;
-    ```
-
-#### `@ComponentScan`
-- **Purpose:** Configures component scanning for Spring.
-- **Functionality:** Directs Spring to scan for components, services, and repositories in specified packages.
-- **Example:**
-
-    ```java
-    @ComponentScan(basePackages = "com.example.service")
-    public class AppConfig {
-        // ... configuration
+    @ConditionalOnProperty(name = "db.env", havingValue = "development")
+    @Bean
+    public DataSource dataSource() {
+        // ... development datasource configuration
     }
     ```
 
-#### `@EnableAutoConfiguration`
-- **Purpose:** Enables Spring Boot’s auto-configuration mechanism.
-- **Functionality:** Automatically configures Spring application based on classpath settings and beans defined in the context.
+### `@Autowired`
+- **Purpose:** Automatically wires dependencies into a bean.
+- **Functionality:** Spring injects the required dependencies by type.
 - **Example:**
 
     ```java
-    @SpringBootApplication
-    public class Application {
-        public static void main(String[] args) {
-            SpringApplication.run(Application.class, args);
-        }
+    @Component
+    public class MyService {
+        @Autowired
+        private MyRepository repository;
     }
     ```
 
-#### `@SpringBootApplication`
-- **Purpose:** Serves as a convenience annotation combining `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan`.
-- **Functionality:** Sets up a Spring Boot application and enables auto-configuration and component scanning.
-- **Example:**
 
-    ```java
-    @SpringBootApplication
-    public class Application {
-        public static void main(String[] args) {
-            SpringApplication.run(Application.class, args);
-        }
-    }
-    ```
 
 ### Resources
 
