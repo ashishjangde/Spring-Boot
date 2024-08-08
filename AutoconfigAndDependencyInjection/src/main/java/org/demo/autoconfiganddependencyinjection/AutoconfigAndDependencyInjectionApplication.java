@@ -1,7 +1,7 @@
 package org.demo.autoconfiganddependencyinjection;
 
 import org.demo.autoconfiganddependencyinjection.db.DB;
-//import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,7 +20,7 @@ public class AutoconfigAndDependencyInjectionApplication implements CommandLineR
 
 
     /**
-     * constructor-based injection in which we can final our property that no one can change
+     * constructor-based injection in which we can final our property that no one can change,
      * we can use autowired too // but not recommended depend upon use cases
      */
     private final DB db;
