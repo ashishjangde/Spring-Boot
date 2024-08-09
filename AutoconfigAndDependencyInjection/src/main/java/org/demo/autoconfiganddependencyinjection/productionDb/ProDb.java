@@ -1,5 +1,7 @@
 package org.demo.autoconfiganddependencyinjection.productionDb;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.demo.autoconfiganddependencyinjection.db.DB;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
@@ -16,6 +18,16 @@ public class ProDb implements DB {
     @Override
     public String getData() {
         return "Using ProData";
+    }
+
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println("constructing Product DB");
+    }
+
+    @PreDestroy
+    public void shutdown() {
+    System.out.println("shutting down Product DB");
     }
 
 }
