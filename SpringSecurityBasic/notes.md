@@ -212,17 +212,6 @@ This diagram illustrates:
 
 Note: This is a simplified representation. The actual flow in Spring Security can be more complex depending on the configuration and specific use case.
 
-# Comprehensive Spring Security Configuration Guide
-
-## Core Spring Security Components
-
-[Previous content remains unchanged]
-
-## Configuring SecurityFilterChain
-
-[Previous content remains unchanged]
-
-## Advanced SecurityFilterChain Configurations
 
 ### Creating User Roles
 
