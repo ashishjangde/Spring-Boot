@@ -17,10 +17,12 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "userDetails")
 public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
+    private String name;
     @Column(nullable = false, unique = true)
     private String email;
     @Column(nullable = false)

@@ -15,14 +15,14 @@ class SpringBootSecurityJwtApplicationTests {
 
 	@Test
 	void contextLoads() {
-		UserEntity user = new UserEntity(89L,"ashishjangdex@gmail.com","123678");
-
-		String token = jwtService.generateToken(user);
-
-		System.out.println(token);
-
-		Long verifyToken = jwtService.getUserIdFromToken(token);
-		System.out.println(verifyToken);
+//		UserEntity user = new UserEntity(89L,"ashishjangdex@gmail.com","123678");
+//
+//		String token = jwtService.generateToken(user);
+//
+//		System.out.println(token);
+//
+//		Long verifyToken = jwtService.getUserIdFromToken(token);
+//		System.out.println(verifyToken);
 
 	}
 
