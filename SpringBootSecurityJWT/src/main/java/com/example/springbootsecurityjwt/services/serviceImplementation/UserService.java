@@ -1,16 +1,13 @@
 package com.example.springbootsecurityjwt.services.serviceImplementation;
 
-import com.example.springbootsecurityjwt.dto.LoginDto;
+
 import com.example.springbootsecurityjwt.dto.SignupDto;
 import com.example.springbootsecurityjwt.dto.UserDto;
 import com.example.springbootsecurityjwt.entities.UserEntity;
 import com.example.springbootsecurityjwt.repositories.UserRepositories;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -30,8 +27,12 @@ public class UserService implements UserDetailsService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepositories.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("User With This" + username + "Not Found"));
+    public UserDetails loadUserByUsername(String username) throws BadCredentialsException{
+        return userRepositories.findByEmail(username).orElseThrow(() -> new BadCredentialsException("User With This " + username + " Not Found"));
+    }
+
+    public  UserEntity getUserById(Long userId){
+        return userRepositories.findById(userId).orElseThrow(() -> new BadCredentialsException("User With This " + userId));
     }
 
     public UserDto signUp(SignupDto signupDto) {

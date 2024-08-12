@@ -2,11 +2,15 @@ package com.example.springbootsecurityjwt.services.serviceImplementation;
 
 import com.example.springbootsecurityjwt.dto.PostDto;
 import com.example.springbootsecurityjwt.entities.PostEntity;
+import com.example.springbootsecurityjwt.entities.UserEntity;
 import com.example.springbootsecurityjwt.repositories.PostRepositories;
 import com.example.springbootsecurityjwt.services.PostService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.util.ReflectionUtils;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
@@ -15,6 +19,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class PostServiceImplementation implements PostService {
@@ -46,6 +51,8 @@ public class PostServiceImplementation implements PostService {
 
     @Override
     public PostDto updatePostById(long postId, PostDto post) {
+        UserEntity userEntity = (UserEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        log.info("user: {}",userEntity.toString());
        PostEntity postEntity = modelMapper.map(post, PostEntity.class);
        postEntity.setId(postId);
        postRepositories.save(postEntity);

@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.apache.coyote.BadRequestException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +26,7 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/signup")
-    public ResponseEntity<UserDto> registerUser(@Valid @RequestBody SignupDto signupDto) {
+    public ResponseEntity<UserDto> registerUser(@Valid @RequestBody SignupDto signupDto) throws BadRequestException {
        UserDto userToSave = userService.signUp(signupDto);
         return ResponseEntity.ok(userToSave);
     }
