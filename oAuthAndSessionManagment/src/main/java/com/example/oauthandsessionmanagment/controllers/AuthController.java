@@ -2,7 +2,6 @@ package com.example.oauthandsessionmanagment.controllers;
 
 
 
-import com.example.oauthandsessionmanagment.advices.APIResponse;
 import com.example.oauthandsessionmanagment.dto.LoginDto;
 import com.example.oauthandsessionmanagment.dto.LoginResponseDto;
 import com.example.oauthandsessionmanagment.dto.SignupDto;
@@ -14,7 +13,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationServiceException;
@@ -38,7 +36,7 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/signup")
-    public ResponseEntity<UserDto> registerUser(@Valid @RequestBody SignupDto signupDto) throws BadRequestException {
+    public ResponseEntity<UserDto> registerUser(@Valid @RequestBody SignupDto signupDto) {
        UserDto userToSave = userService.signUp(signupDto);
         return ResponseEntity.ok(userToSave);
     }

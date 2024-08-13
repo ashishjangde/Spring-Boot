@@ -16,6 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Table(name = "userDetails")
+@Builder
 public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -23,7 +24,6 @@ public class UserEntity implements UserDetails {
     private String name;
     @Column(nullable = false, unique = true)
     private String email;
-    @Column(nullable = false)
     private String password;
 
 

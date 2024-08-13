@@ -34,6 +34,10 @@ public class UserService implements UserDetailsService {
         return userRepositories.findById(userId).orElseThrow(() -> new BadCredentialsException("User With This " + userId));
     }
 
+    public UserEntity getUserByEmail(String email){
+        return userRepositories.findByEmail(email).orElse(null);
+    }
+
     public UserDto signUp(SignupDto signupDto) {
         Optional<UserEntity> userEntity = userRepositories.findByEmail(signupDto.getEmail());
         if (userEntity.isPresent()) {
@@ -46,4 +50,7 @@ public class UserService implements UserDetailsService {
     }
 
 
+    public UserEntity saveUser(UserEntity user) {
+        return userRepositories.save(user);
+    }
 }
