@@ -7,8 +7,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-import com.example.springbootsecurityjwt.repositories.UserRepositories;
-
 import org.springframework.security.authentication.BadCredentialsException;
 
 @Service
@@ -16,7 +14,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final JWTService jwtService;
-    private final UserRepositories userRepositories;
 
     public String login(LoginDto loginDto) {
         try {
