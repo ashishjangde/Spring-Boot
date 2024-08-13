@@ -11,9 +11,6 @@ import com.example.springbootsecurityjwt.repositories.UserRepositories;
 
 import org.springframework.security.authentication.BadCredentialsException;
 
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-
-
 @Service
 @RequiredArgsConstructor
 public class AuthService {
