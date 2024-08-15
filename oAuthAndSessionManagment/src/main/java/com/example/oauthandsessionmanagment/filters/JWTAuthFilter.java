@@ -42,23 +42,23 @@ public class JWTAuthFilter extends OncePerRequestFilter {
         try {
             final String authorizationHeader = request.getHeader("Authorization");
 
-            logger.info("Authorization header: {}", authorizationHeader);
+         //   logger.info("Authorization header: {}", authorizationHeader);
 
             if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
-                logger.info("No JWT token found in the request headers");
+             //   logger.info("No JWT token found in the request headers");
                 filterChain.doFilter(request, response);
                 return;
             }
 
             String token = authorizationHeader.split("Bearer ")[1];
-            logger.info("Extracted token: {}", token);
+           // logger.info("Extracted token: {}", token);
 
             Long userId = jwtService.getUserIdFromToken(token);
             logger.info("User ID from token: {}", userId);
 
             if (userId != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserEntity user = userService.getUserById(userId);
-                logger.info("UserEntity: {}", user);
+               // logger.info("UserEntity: {}", user);
 
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
                 authenticationToken.setDetails(

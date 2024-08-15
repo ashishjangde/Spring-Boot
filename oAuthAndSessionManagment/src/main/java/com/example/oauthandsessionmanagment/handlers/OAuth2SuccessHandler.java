@@ -52,7 +52,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         cookie.setSecure("production".equals(deployEnv)); // if we are on server mark it true https environment only
         response.addCookie(cookie);
 
-        String frontEndUrl = "http://localhost:8080/home.html?token=" + accessToken;
+        String frontEndUrl = "http://localhost:5173/"; //"http://localhost:5173/home.html?token=" + accessToken;
 
         //getRedirectStrategy().sendRedirect(request,response,frontEndUrl);
 
