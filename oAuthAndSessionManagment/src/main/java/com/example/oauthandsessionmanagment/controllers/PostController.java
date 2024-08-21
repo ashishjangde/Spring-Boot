@@ -6,6 +6,8 @@ import com.example.oauthandsessionmanagment.services.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +22,8 @@ public class PostController {
 
     private final PostService postService;
 
+
+    @Secured({"ROLE_USER","ROLE_ADMIN"})
     @GetMapping
     public ResponseEntity<List<PostDto>> getAllPosts() {
         List<PostDto> posts = postService.getAllPosts();
@@ -27,6 +31,7 @@ public class PostController {
     }
 
     @GetMapping("/{postId}")
+    @PreAuthorize("@postSecurityService.isOwnerOfThePost(#postId)")
     public ResponseEntity<PostDto> getPostById(@PathVariable Long postId) {
         Optional<PostDto> post = postService.getPostById(postId);
         return post.map(ResponseEntity::ok)
@@ -34,6 +39,7 @@ public class PostController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyRole({'CREATOR','ADMIN'} AND hasAuthority('POST_CREATE'))")  //similar to @Secured
     public ResponseEntity<PostDto> createPost(@RequestBody PostDto post) {
         PostDto createdPost = postService.savePost(post);
         return new ResponseEntity<>(createdPost, HttpStatus.CREATED);
