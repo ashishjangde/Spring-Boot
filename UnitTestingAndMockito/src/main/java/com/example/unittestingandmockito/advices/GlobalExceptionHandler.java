@@ -1,5 +1,7 @@
 package com.example.unittestingandmockito.advices;
 
+import com.example.unittestingandmockito.exceptions.EmployeeValidationException;
+import com.example.unittestingandmockito.exceptions.ExistingResourceFoundException;
 import com.example.unittestingandmockito.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +28,15 @@ public class GlobalExceptionHandler {
         return handelReturnStatement(apiError);
     }
 
+    @ExceptionHandler(ExistingResourceFoundException.class)
+    public ResponseEntity<APIResponse<?>> handleExistingResourceFoundException(ExistingResourceFoundException e) {
+        APIError apiError = APIError.builder()
+                .status(HttpStatus.CONFLICT)
+                .message(e.getMessage())
+                .build();
+        return handelReturnStatement(apiError);
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<APIResponse<?>> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         List<String> errors = e.getBindingResult()
@@ -38,6 +49,16 @@ public class GlobalExceptionHandler {
                 .status(HttpStatus.BAD_REQUEST)
                 .message("Input Validation Failed")
                 .subError(errors)
+                .build();
+        return handelReturnStatement(apiError);
+    }
+
+    @ExceptionHandler(EmployeeValidationException.class)
+    public ResponseEntity<APIResponse<?>> handleEmployeeValidationException(EmployeeValidationException e) {
+        APIError apiError = APIError.builder()
+                .status(HttpStatus.BAD_REQUEST)
+                .message("Employee Validation Failed")
+                .subError(e.getErrors())
                 .build();
         return handelReturnStatement(apiError);
     }

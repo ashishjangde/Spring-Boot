@@ -3,9 +3,11 @@ package com.example.unittestingandmockito.controllers;
 
 import com.example.unittestingandmockito.dto.EmployeeDto;
 import com.example.unittestingandmockito.services.EmployeeService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,20 +34,20 @@ public class EmployeeController {
     }
 
     @PostMapping()
-    public ResponseEntity<EmployeeDto> createNewEmployee(@RequestBody EmployeeDto employeeDto) {
+    public ResponseEntity<EmployeeDto> createNewEmployee(@Valid  @RequestBody EmployeeDto employeeDto) {
         EmployeeDto employee = employeeService.createEmployee(employeeDto);
         return new ResponseEntity<>(employee, HttpStatus.CREATED);
     }
 
     @PutMapping("/{employeeId}")
-    public ResponseEntity<EmployeeDto> updateEmployeeById(@PathVariable long employeeId , @RequestBody EmployeeDto employeeDto) {
+    public ResponseEntity<EmployeeDto> updateEmployeeById(@PathVariable long employeeId , @Valid @RequestBody EmployeeDto employeeDto) {
         EmployeeDto employee = employeeService.updateEmployee(employeeId, employeeDto);
         if (employee == null) return ResponseEntity.notFound().build();
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
 
     @PatchMapping("{employeeId}")
-    public ResponseEntity<EmployeeDto> updatePartialEmployeeById(@PathVariable long employeeId , @RequestBody Map<String,Object> employee) {
+    public ResponseEntity<EmployeeDto> updatePartialEmployeeById(@PathVariable long employeeId , @Valid @RequestBody Map<String,Object> employee) {
         EmployeeDto employeeDto = employeeService.updatePartialEmployeeById(employeeId,employee);
         if (employeeDto == null) return ResponseEntity.notFound().build();
         return new ResponseEntity<>(employeeDto, HttpStatus.OK);
