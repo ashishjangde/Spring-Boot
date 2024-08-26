@@ -11,6 +11,7 @@ import lombok.*;
 @Entity
 @ToString
 @Builder
+@Data
 @Table(name = "EmployeeDetails")
 public class EmployeeEntity {
 

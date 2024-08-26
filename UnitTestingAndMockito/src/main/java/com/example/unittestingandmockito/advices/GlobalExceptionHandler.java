@@ -9,7 +9,9 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @ControllerAdvice
@@ -39,10 +41,14 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<APIResponse<?>> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
-        List<String> errors = e.getBindingResult()
-                .getAllErrors()
+        List<Map<String, String>> errors = e.getBindingResult()
+                .getFieldErrors()
                 .stream()
-                .map(fieldError -> fieldError.getDefaultMessage())
+                .map(fieldError -> {
+                    Map<String, String> errorMap = new HashMap<>();
+                    errorMap.put(fieldError.getField(), fieldError.getDefaultMessage());
+                    return errorMap;
+                })
                 .collect(Collectors.toList());
 
         APIError apiError = APIError.builder()
@@ -50,18 +56,31 @@ public class GlobalExceptionHandler {
                 .message("Input Validation Failed")
                 .subError(errors)
                 .build();
+
         return handelReturnStatement(apiError);
     }
+
 
     @ExceptionHandler(EmployeeValidationException.class)
     public ResponseEntity<APIResponse<?>> handleEmployeeValidationException(EmployeeValidationException e) {
         APIError apiError = APIError.builder()
                 .status(HttpStatus.BAD_REQUEST)
-                .message("Employee Validation Failed")
+                .message("Input Validation Failed")
                 .subError(e.getErrors())
                 .build();
         return handelReturnStatement(apiError);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<APIResponse<?>> handleIllegalArgumentException(IllegalArgumentException e) {
+        APIError apiError = APIError.builder()
+                .status(HttpStatus.BAD_REQUEST)
+                .message(e.getMessage())
+                .build();
+        return handelReturnStatement(apiError);
+    }
+
+
 
 
 }

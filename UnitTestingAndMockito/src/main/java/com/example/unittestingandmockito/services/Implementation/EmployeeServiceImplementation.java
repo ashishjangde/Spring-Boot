@@ -8,6 +8,7 @@ import com.example.unittestingandmockito.exceptions.ResourceNotFoundException;
 import com.example.unittestingandmockito.repositories.EmployeeRepositories;
 import com.example.unittestingandmockito.services.EmployeeService;
 import jakarta.validation.ConstraintViolation;
+
 import jakarta.validation.Validator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,10 +17,7 @@ import org.springframework.data.util.ReflectionUtils;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,7 +27,6 @@ public class EmployeeServiceImplementation implements EmployeeService {
     private final EmployeeRepositories employeeRepositories;
     private final ModelMapper modelMapper;
     private final Validator validator;
-
     @Override
     public List<EmployeeDto> getAllEmployees() {
         List<EmployeeEntity> employee = employeeRepositories.findAll();
@@ -84,15 +81,20 @@ public class EmployeeServiceImplementation implements EmployeeService {
 
 
     public EmployeeDto updatePartialEmployeeById(long employeeId, Map<String, Object> updates) {
+        log.info("Attempting to update employee with ID: {}", employeeId);
         // Fetch the employee entity
         EmployeeEntity employee = employeeRepositories.findById(employeeId)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not found with id " + employeeId));
+                .orElseThrow(() -> {
+                    log.error("Employee not found with id: {}", employeeId);
+                    return new ResourceNotFoundException("Employee not found with id " + employeeId);
+                });
 
+        log.info("Applying updates to employee: {}", updates);
         // Apply updates directly to the employee entity
         updates.forEach((key, value) -> {
             Field field = ReflectionUtils.findRequiredField(EmployeeEntity.class, key);
             field.setAccessible(true);
-            if (field.getType().equals(Long.class) && value instanceof Integer) {
+            if (value instanceof Integer) {
                 value = Long.valueOf((Integer) value);
             }
             ReflectionUtils.setField(field, employee, value);
@@ -102,15 +104,22 @@ public class EmployeeServiceImplementation implements EmployeeService {
         EmployeeDto employeeDto = modelMapper.map(employee, EmployeeDto.class);
         Set<ConstraintViolation<EmployeeDto>> violations = validator.validate(employeeDto);
         if (!violations.isEmpty()) {
-            List<String> errors = violations.stream()
-                    .map(ConstraintViolation::getMessage)
+            List<Map<String,String>> errors = violations.stream()
+                    .map(fieldError -> {
+                        Map<String, String> errorMap = new HashMap<>();
+                        errorMap.put(fieldError.getPropertyPath().toString(), fieldError.getMessage());
+                        return errorMap;
+                    })
                     .collect(Collectors.toList());
+            log.error("Validation failed for employee update. Errors: {}", errors);
             throw new EmployeeValidationException(errors);
         }
 
+        log.info("Validation passed, saving updated employee");
         // Save the updated employee entity
         EmployeeEntity updatedEmployee = employeeRepositories.save(employee);
 
+        log.info("Employee with ID {} successfully updated", employeeId);
         // Return the updated DTO
         return modelMapper.map(updatedEmployee, EmployeeDto.class);
     }

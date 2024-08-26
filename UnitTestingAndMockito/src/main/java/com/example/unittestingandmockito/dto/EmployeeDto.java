@@ -27,4 +27,6 @@ public class EmployeeDto {
     @NotNull(message = "Salary cannot be null")
     @Min(value = 0, message = "Salary must be greater than or equal to 0")
     private Long salary;
+
+
 }

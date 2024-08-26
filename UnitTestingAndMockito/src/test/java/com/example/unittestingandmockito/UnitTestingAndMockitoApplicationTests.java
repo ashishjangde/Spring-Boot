@@ -66,12 +66,12 @@ class UnitTestingAndMockitoApplicationTests {
         log.info("Test three");
     }
 
-    @Test
-    @Disabled // for disabling the test case
-    @DisplayName("TestCaseOne") //for changing the name of the test case
-    void testOne() {
-      log.info("testOne");
-    }
+//    @Test
+//    @Disabled // for disabling the test case
+//    @DisplayName("TestCaseOne") //for changing the name of the test case
+//    void testOne() {
+//      log.info("testOne");
+//    }
 
 
     @Test

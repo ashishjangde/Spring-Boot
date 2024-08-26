@@ -1,0 +1,179 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > EmployeeController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.unittestingandmockito.controllers</a>
+</div>
+
+<h1>Coverage Summary for Class: EmployeeController (com.example.unittestingandmockito.controllers)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EmployeeController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (3/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.unittestingandmockito.controllers;
+&nbsp;
+&nbsp;
+&nbsp;import com.example.unittestingandmockito.dto.EmployeeDto;
+&nbsp;import com.example.unittestingandmockito.services.EmployeeService;
+&nbsp;import jakarta.validation.Valid;
+&nbsp;import lombok.RequiredArgsConstructor;
+&nbsp;import org.springframework.http.HttpStatus;
+&nbsp;import org.springframework.http.ResponseEntity;
+&nbsp;import org.springframework.web.bind.annotation.*;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Optional;
+&nbsp;
+&nbsp;@RequiredArgsConstructor
+&nbsp;@RestController
+&nbsp;@RequestMapping( &quot;/employee&quot;)
+&nbsp;public class EmployeeController {
+&nbsp;
+&nbsp;    private final EmployeeService employeeService;
+&nbsp;
+&nbsp;    @GetMapping
+&nbsp;    public ResponseEntity&lt;List&lt;EmployeeDto&gt;&gt; getAllEmployees() {
+<b class="fc">&nbsp;        List&lt;EmployeeDto&gt; employeeDto = employeeService.getAllEmployees();</b>
+<b class="fc">&nbsp;        return ResponseEntity.ok(employeeDto);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping( &quot;/{employeeId}&quot;)
+&nbsp;    public ResponseEntity&lt;EmployeeDto&gt; getEmployeeById(@PathVariable Long employeeId) {
+<b class="fc">&nbsp;       Optional &lt;EmployeeDto&gt; employeeDto = employeeService.getEmployeeById(employeeId);</b>
+<b class="fc">&nbsp;        return employeeDto.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PostMapping()
+&nbsp;    public ResponseEntity&lt;EmployeeDto&gt; createNewEmployee(@Valid  @RequestBody EmployeeDto employeeDto) {
+<b class="fc">&nbsp;        EmployeeDto employee = employeeService.createEmployee(employeeDto);</b>
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(employee, HttpStatus.CREATED);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PutMapping(&quot;/{employeeId}&quot;)
+&nbsp;    public ResponseEntity&lt;EmployeeDto&gt; updateEmployeeById(@PathVariable long employeeId , @Valid @RequestBody EmployeeDto employeeDto) {
+<b class="fc">&nbsp;        EmployeeDto employee = employeeService.updateEmployee(employeeId, employeeDto);</b>
+<b class="pc">&nbsp;        if (employee == null) return ResponseEntity.notFound().build();</b>
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(employee, HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PatchMapping(&quot;{employeeId}&quot;)
+&nbsp;    public ResponseEntity&lt;EmployeeDto&gt; updatePartialEmployeeById(@PathVariable long employeeId , @Valid @RequestBody Map&lt;String,Object&gt; employee) {
+<b class="fc">&nbsp;        EmployeeDto employeeDto = employeeService.updatePartialEmployeeById(employeeId,employee);</b>
+<b class="pc">&nbsp;        if (employeeDto == null) return ResponseEntity.notFound().build();</b>
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(employeeDto, HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @DeleteMapping(&quot;{employeeId}&quot;)
+&nbsp;    public ResponseEntity&lt;EmployeeDto&gt; deleteEmployeeById(@PathVariable long employeeId) {
+<b class="fc">&nbsp;        boolean deleted = employeeService.deleteEmployeeById(employeeId);</b>
+<b class="pc">&nbsp;        if (!deleted) return ResponseEntity.notFound().build();</b>
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(HttpStatus.OK);</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-08-26 14:49</div>
+</div>
+</body>
+</html>
