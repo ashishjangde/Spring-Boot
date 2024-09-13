@@ -86,14 +86,7 @@ public class GlobalExceptionHandler {
         return handelReturnStatement(apiError);
     }
 
-    @ExceptionHandler(AccessDeniedException.class)
-    public ResponseEntity<APIResponse<?>> handelAccessDeniedException(AccessDeniedException e) {
-        APIError apiError = APIError.builder()
-                .status(HttpStatus.FORBIDDEN)
-                .message("Acess denied " + e.getMessage())
-                .build();
-        return handelReturnStatement(apiError);
-    }
+
 
 
 

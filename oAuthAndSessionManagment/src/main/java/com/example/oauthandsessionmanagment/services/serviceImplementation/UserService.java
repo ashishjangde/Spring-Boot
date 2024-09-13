@@ -21,6 +21,7 @@ public class UserService implements UserDetailsService {
 
     private final UserRepositories userRepositories;
     private final ModelMapper modelMapper;
+
     private final PasswordEncoder passwordEncoder;
 
 
