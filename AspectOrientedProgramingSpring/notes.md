@@ -179,7 +179,7 @@ Advice is associated with a pointcut expression and runs before, after, or aroun
 - Official documentation can be found [here](https://docs.spring.io/spring-framework/reference/core/aop/ataspectj/advice.html)
 
 
-```md
+
 # Spring Proxy and Internal Working of AOP
 
 ## Introduction to Spring Proxies
@@ -229,7 +229,6 @@ When a method on the proxy object is called, the proxy **intercepts the method c
 8. **Returning Control**: After the advice execution, control is returned to the original method.
 9. **Handling Results and Exceptions**: Any results returned by the method or exceptions thrown are passed back to the caller.
 
----
 
 ## Weaving in Spring AOP
 Weaving refers to the process of injecting aspects into the target class bytecode. This can be done at various stages:
@@ -239,17 +238,13 @@ Weaving refers to the process of injecting aspects into the target class bytecod
 
 Spring primarily uses **dynamic proxies** for AOP. However, with **AspectJ integration**, Spring can support **load-time weaving** or **compile-time weaving** for more complex scenarios.
 
----
 
 ## Conclusion
 Spring AOP uses proxies to intercept method calls and apply cross-cutting concerns without affecting the core logic of the beans. Through dynamic proxies and AspectJ weaving, Spring achieves a flexible, non-intrusive way to handle features like logging, transaction management, and more.
-```
-```md
 # Do We Really Need AOP for These?
 
 When considering whether to use Aspect-Oriented Programming (AOP) in a Spring application, it's important to evaluate whether existing annotations or features can fulfill the requirement without introducing the complexity of AOP.
 
----
 
 ## Cases Where AOP Might Not Be Necessary
 
@@ -269,7 +264,7 @@ When considering whether to use Aspect-Oriented Programming (AOP) in a Spring ap
    - **@Cacheable** is a powerful, built-in annotation that integrates with Spring's caching abstraction.
    - Custom caching logic using AOP is rarely needed unless your caching requirements are highly specialized.
 
----
+
 
 ## Where to Use AOP
 
@@ -289,4 +284,3 @@ When considering whether to use Aspect-Oriented Programming (AOP) in a Spring ap
 
 ## Conclusion
 While AOP is not necessary for many common cases where built-in Spring annotations suffice (e.g., transactions, security, validation, caching), it remains a powerful tool for more complex cross-cutting concerns like logging, monitoring, profiling, auditing, and advanced caching strategies. It should be used in cases where built-in annotations are either insufficient or overly restrictive.
-```
