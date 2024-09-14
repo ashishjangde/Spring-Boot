@@ -8,7 +8,7 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
-@Aspect
+//@Aspect
 @Component
 @Slf4j
 public class LoggingAspect {
@@ -31,7 +31,7 @@ public class LoggingAspect {
     public void pointcutAfter(JoinPoint joinPoint) {
         log.info("Pointcut annotation After {}", joinPoint.getSignature().getName());
     }
-    @Before("@annotation(com.example.aspectorientedprogramingspring.aspects.CustomException)")
+    @Before("@annotation(com.example.aspectorientedprogramingspring.aspects.CustomAspectAnnotation)")
     public void customAnnotationPointcut(JoinPoint joinPoint) {
         log.info("Custom Annotation Pointcut {}", joinPoint.getSignature().getName());
     }

@@ -99,3 +99,83 @@ public class LoggingAspect {
     @Pointcut("@annotation(org.springframework.transaction.annotation.Transactional)")
     public void pointcutMy() {}
 }
+
+```
+
+# Spring AOP Advice: The Basics
+
+Ever wondered how to add extra behavior to your methods without changing their code? That's where Spring AOP Advice comes in handy!
+
+## What is Advice?
+
+Think of Advice as a way to say "Hey, do this extra stuff before/after/around my method runs." It's like having a helpful assistant for your methods.
+
+## Types of Advice
+
+1. **@Before**: The eager beaver
+   - Runs before your method
+   - Great for setup or checks
+
+2. **@After**: The cleanup crew
+   - Runs after your method, no matter what happens
+   - Perfect for tidying up
+
+3. **@AfterReturning**: The successful finisher
+   - Only runs if your method doesn't throw a fit (er, exception)
+   - Useful when you need to know the result
+
+4. **@AfterThrowing**: The problem handler
+   - Jumps in when things go wrong
+   - Your method's personal firefighter
+
+5. **@Around**: The flexible friend
+   - Can do stuff before and after your method
+   - The Swiss Army knife of advice - super versatile!
+
+## Pro Tips
+
+- Start simple with @Before
+- Use the JoinPoint to peek at method details
+- Check out the official docs for more cool tricks!
+
+Remember, with great power comes great responsibility. Use advice wisely to keep your code clean and your methods happy!
+
+# Spring AOP Advice Notes
+
+## Declaring Advice
+
+Advice is associated with a pointcut expression and runs before, after, or around method executions matched by the pointcut. The pointcut expression may be either an inline pointcut or a reference to a named pointcut.
+
+## Advice Types
+
+### 1. @Before Advice
+- Runs before the method execution
+- Can capture the JoinPoint, which offers useful information like:
+    - Method name
+    - Method arguments
+    - Other details
+
+### 2. @After Advice
+- Runs after the method finishes execution
+- Executes regardless of whether the method returns normally or throws an exception
+
+### 3. @AfterReturning Advice
+- Similar to @After, but runs only after normal execution of the method
+- Can be used to access the returning object
+
+### 4. @AfterThrowing Advice
+- Similar to @After, but runs only after an exception is thrown during method execution
+
+### 5. @Around Advice
+- Allows actions to be taken either before or after a JoinPoint method is run
+- Can be used to:
+    - Return a custom value
+    - Throw an exception
+    - Let the method run and return normally
+
+## Additional Notes
+- So far, we have been using the @Before Advice annotation simply
+- Spring AOP provides more advanced functionalities
+- Official documentation can be found [here](https://docs.spring.io/spring-framework/reference/core/aop/ataspectj/advice.html)
+
+

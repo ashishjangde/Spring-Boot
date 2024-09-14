@@ -1,6 +1,6 @@
 package com.example.aspectorientedprogramingspring.services.serviceImplementation;
 
-import com.example.aspectorientedprogramingspring.aspects.CustomException;
+import com.example.aspectorientedprogramingspring.aspects.CustomAspectAnnotation;
 import com.example.aspectorientedprogramingspring.services.ShipmentService;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class ShipmentServiceImplementation implements ShipmentService {
 
     @Override
-    @CustomException
+    @CustomAspectAnnotation
     public String orderPackage(long id) {
       // log.info("started order package");
        try{
@@ -25,14 +25,13 @@ public class ShipmentServiceImplementation implements ShipmentService {
 
     @Override
     @Transactional
-    public String trackPackage(long id) {
+    public String trackPackage(long id) throws Exception {
       //  log.info("started track package");
         try {
             log.info("Track package of {} has been created", id);
             throw new RuntimeException("Track package failed");
         }catch (Exception e){
-            log.error(e.getMessage());
+           throw new Exception("Track package failed");
         }
-        return "Track package successfully created";
     }
 }
