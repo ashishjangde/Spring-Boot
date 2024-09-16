@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: CacheInSpringBoot
+
+  datasource:
+    username: postgres
+    password: manager
+    url: jdbc:postgresql://localhost:5432/cache
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  data:
+    redis:
+      host: localhost
+      port: 6379
