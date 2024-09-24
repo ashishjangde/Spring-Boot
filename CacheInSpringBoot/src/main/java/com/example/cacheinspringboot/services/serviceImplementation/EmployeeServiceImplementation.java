@@ -4,12 +4,16 @@ import com.example.cacheinspringboot.dto.EmployeeDto;
 import com.example.cacheinspringboot.entities.EmployeeEntity;
 import com.example.cacheinspringboot.repositories.EmployeeRepositories;
 import com.example.cacheinspringboot.services.EmployeeService;
+import com.example.cacheinspringboot.services.SalaryService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
@@ -22,6 +26,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
 
     private final EmployeeRepositories employeeRepositories;
     private final ModelMapper modelMapper;
+    private final SalaryService salaryService;
 
 
     @Cacheable(cacheNames = "employee", key = "#employeeId")
@@ -42,11 +47,13 @@ public class EmployeeServiceImplementation implements EmployeeService {
                .collect(Collectors.toList());
     }
 
+    @Transactional(propagation = Propagation.REQUIRED , isolation = Isolation.SERIALIZABLE)
     @Override
     @CachePut(cacheNames = "employee", key = "#result.employeeId")
     public EmployeeDto createEmployee(EmployeeDto employeeDto) {
       EmployeeEntity employeeEntity = modelMapper.map(employeeDto, EmployeeEntity.class);
       employeeRepositories.save(employeeEntity);
+      salaryService.createSalaryAccount(employeeEntity);
       return modelMapper.map(employeeEntity, EmployeeDto.class);
     }
 

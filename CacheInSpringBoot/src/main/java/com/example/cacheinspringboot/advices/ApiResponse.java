@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class ApiResponse <T>{
-    @Pattern(regexp = "hh:mm:ss dd-MM-yyyy")
+    @Pattern(regexp = "hh:mm:ss __ dd-MM-yyyy")
     private LocalDateTime localDateTime;
     private T data;
     private ApiError error;
