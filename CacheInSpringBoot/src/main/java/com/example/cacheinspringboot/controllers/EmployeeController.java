@@ -1,12 +1,15 @@
 package com.example.cacheinspringboot.controllers;
 
 import com.example.cacheinspringboot.dto.EmployeeDto;
+import com.example.cacheinspringboot.entities.SalaryEntity;
 import com.example.cacheinspringboot.services.EmployeeService;
+import com.example.cacheinspringboot.services.SalaryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.security.auth.login.AccountException;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +19,7 @@ import java.util.Optional;
 public class EmployeeController {
 
     private final EmployeeService employeeService;
+    private final SalaryService salaryService;
 
     @GetMapping("/{employeeId}")
     public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable Long employeeId) {
@@ -49,6 +53,13 @@ public class EmployeeController {
         boolean deleted = employeeService.deleteEmployee(employeeId);
         if (!deleted) return ResponseEntity.notFound().build();
         return new ResponseEntity<>(true, HttpStatus.OK);
+   }
+
+   @PutMapping("/increment-balance/{employeeId}")
+    public ResponseEntity<SalaryEntity> incrementBalance(@PathVariable long employeeId) {
+        SalaryEntity updatedSalary = salaryService.updateSalary(employeeId);
+        if (updatedSalary == null) return ResponseEntity.notFound().build();
+        return new ResponseEntity<>(updatedSalary, HttpStatus.OK);
    }
 
 }
