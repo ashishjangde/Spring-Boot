@@ -14,10 +14,15 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/order")
+@RequestMapping("/core")
 public class OrderController {
 
     private final OrdersService ordersService;
+
+    @GetMapping("/helloOrder")
+    public ResponseEntity<String> sayHello() {
+       return ResponseEntity.ok("Hello Order Service");
+    }
 
     @GetMapping
     public ResponseEntity<List<OrderRequestDto>> getAllOrders() {
