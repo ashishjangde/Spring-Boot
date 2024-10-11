@@ -1,5 +1,7 @@
 package com.microservice.inventory_service.service;
 
+import com.microservice.inventory_service.dto.OrderRequestDto;
+import com.microservice.inventory_service.dto.OrderRequestItemDto;
 import com.microservice.inventory_service.dto.ProductDto;
 import com.microservice.inventory_service.entity.ProductEntity;
 import com.microservice.inventory_service.repositories.ProductRepository;
@@ -7,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -42,4 +45,22 @@ public class ProductService {
         return productDto;
     }
 
+    @Transactional()
+    public Double reduceStocks(OrderRequestDto orderRequestDto) {
+        double totalPrice = 0.0;
+        log.info("Reducing the stocks from the database");
+        for(OrderRequestItemDto orderRequestItemDto : orderRequestDto.getItems()){
+            Long productId = orderRequestItemDto.getProductId();
+            Integer quantity = orderRequestItemDto.getQuantity();
+            ProductEntity productEntity = productRepository.findById(productId).orElse(null);
+            if (productEntity == null) throw  new RuntimeException("Product with ID: " + productId + " not found");
+            if(productEntity.getStock() < quantity){
+                throw new RuntimeException("Product with ID: " + productId + " has not enough stock");
+            }
+            productEntity.setStock(productEntity.getStock() - quantity);
+            productRepository.save(productEntity);
+            totalPrice += productEntity.getPrice() * quantity;
+        }
+        return totalPrice;
+    }
 }
