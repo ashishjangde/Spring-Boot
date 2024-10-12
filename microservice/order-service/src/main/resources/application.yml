@@ -1,0 +1,37 @@
+resilience4j:
+  retry:
+    configs:
+      inventoryRetry:
+        max-attempts: 3
+        wait-duration:
+          nanos: 100
+  ratelimiter:
+    configs:
+      inventoryRateLimiter:
+        limit-refresh-period:
+          seconds: 1
+        limit-for-period: 100
+        timeout-duration:
+          nanos: 10
+
+  circuitbreaker:
+    instances:
+      inventoryCircuitBreaker:
+        slidingWindowSize: 10           # Number of calls to record (COUNT or TIME based)
+        slidingWindowType: COUNT_BASED  # Use COUNT_BASED or TIME_BASED windows
+        failureRateThreshold: 50        # Opens the circuit when failures exceed 50%
+        waitDurationInOpenState: 10s    # Time the circuit stays open before trying recovery
+        permittedNumberOfCallsInHalfOpenState: 3  # Number of trial calls in half-open state
+        minimumNumberOfCalls: 5         # Minimum calls needed for failure rate calculation
+        automaticTransitionFromOpenToHalfOpenEnabled: true  # Enable automatic state transition
+        slowCallRateThreshold: 60       # Optional: Opens the circuit if slow calls exceed 60%
+        slowCallDurationThreshold: 2s   # Optional: A call is considered slow if it takes longer than 2s
+        register-health-indicator: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, circuitbreakers
+  health:
+    circuitbreakers:
+      enabled: true
