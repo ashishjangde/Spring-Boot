@@ -12,6 +12,10 @@ spring:
           filters:
             - StripPrefix=2
             - name: LoggingOrderFilter
+            - name: Authentication
+              args:
+                enabled: true
+
         - id: inventory-service
           uri: lb://INVENTORY-SERVICE
           predicates:
@@ -19,7 +23,11 @@ spring:
           filters:
             - StripPrefix=2
             - AddRequestHeader=X-Custom-Header,Ashish
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+jwt:
+  securityKey: hsdhfsfkljshdfjkhsfhwioepiuoweipoweipoewpphjiwehjiwpeiohuiowehoiwenjsdfhli

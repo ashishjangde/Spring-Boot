@@ -1,7 +1,5 @@
 package com.microservice.order_service.controller;
 
-
-import com.microservice.order_service.clients.InventoryFeignClient;
 import com.microservice.order_service.dto.OrderRequestDto;
 import com.microservice.order_service.service.OrdersService;
 import lombok.RequiredArgsConstructor;
@@ -20,8 +18,8 @@ public class OrderController {
 
 
     @GetMapping("/helloOrder")
-    public ResponseEntity<String> sayHello() {
-       return ResponseEntity.ok("Hello Order Service");
+    public ResponseEntity<String> sayHello(@RequestHeader("X-USER-ID") Long userId) {
+       return ResponseEntity.ok("Hello Order Service userID : " + userId);
     }
 
     @GetMapping

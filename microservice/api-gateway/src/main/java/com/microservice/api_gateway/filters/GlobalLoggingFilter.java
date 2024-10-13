@@ -23,6 +23,6 @@ public class GlobalLoggingFilter implements GlobalFilter , Ordered {
 
     @Override
     public int getOrder() {   //from here we can change the filter order
-        return -1;
+        return 5;
     }
 }
