@@ -11,6 +11,7 @@ spring:
             - Path=/api/v1/orders/**
           filters:
             - StripPrefix=2
+            - name: LoggingOrderFilter
         - id: inventory-service
           uri: lb://INVENTORY-SERVICE
           predicates:
