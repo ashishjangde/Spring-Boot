@@ -1,33 +1,18 @@
 spring:
   application:
     name: api-gateway
-
+  config:
+    import: "optional:configserver:http://localhost:8888"
   cloud:
-    gateway:
-      routes:
-        - id: order-service
-          uri: lb://ORDER-SERVICE
-          predicates:
-            - Path=/api/v1/orders/**
-          filters:
-            - StripPrefix=2
-            - name: LoggingOrderFilter
-            - name: Authentication
-              args:
-                enabled: true
+    config:
+      fail-fast: true
+      retry:
+        initial-interval: 1000
+        max-interval: 2000
+        max-attempts: 100
 
-        - id: inventory-service
-          uri: lb://INVENTORY-SERVICE
-          predicates:
-            - Path=/api/v1/inventory/**
-          filters:
-            - StripPrefix=2
-            - AddRequestHeader=X-Custom-Header,Ashish
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-
-jwt:
-  securityKey: hsdhfsfkljshdfjkhsfhwioepiuoweipoweipoewpphjiwehjiwpeiohuiowehoiwenjsdfhli
+# For debugging Config Server issues
+logging:
+  level:
+    org.springframework.cloud.config: DEBUG
+    org.springframework.boot.autoconfigure.condition: DEBUG

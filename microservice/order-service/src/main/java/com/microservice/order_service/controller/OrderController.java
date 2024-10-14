@@ -3,18 +3,28 @@ package com.microservice.order_service.controller;
 import com.microservice.order_service.dto.OrderRequestDto;
 import com.microservice.order_service.service.OrdersService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RefreshScope
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/core")
 public class OrderController {
 
     private final OrdersService ordersService;
+    @Value("${my.profile}")
+    private String myProfile;
+
+    @GetMapping("/profile")
+    public ResponseEntity<String> profile() {
+        return ResponseEntity.ok(myProfile);
+    }
 
 
     @GetMapping("/helloOrder")
