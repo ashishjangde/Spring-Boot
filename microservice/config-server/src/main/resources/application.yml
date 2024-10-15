@@ -5,9 +5,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/ashishjangde/microservice-config-repo
+          uri: https://github.com/ashishjangde/microservice-config-repo           #//this is private repo
           username: ashishjangde
-          password: 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
+          password: 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   #//for example only
           default-label: main
 
 server:
