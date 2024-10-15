@@ -1,0 +1,203 @@
+15-10-2024 13:00:27.911 [main] [-] INFO  UNKNOWN-c.m.d.DiscoveryServiceApplication.logStarting - Starting DiscoveryServiceApplication using Java 22.0.2 with PID 7456 (C:\Users\ashis\Desktop\SpringBoot\microservice\discovery-service\target\classes started by ashis in C:\Users\ashis\Desktop\SpringBoot\microservice)
+15-10-2024 13:00:27.914 [main] [-] INFO  UNKNOWN-c.m.d.DiscoveryServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+15-10-2024 13:00:29.228 [main] [-] INFO  UNKNOWN-o.s.cloud.context.scope.GenericScope.setSerializationId - BeanFactory id=68a007d9-3d6b-3d3b-a24a-164a998f76f0
+15-10-2024 13:00:29.285 [main] [-] WARN  UNKNOWN-o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+15-10-2024 13:00:29.289 [main] [-] WARN  UNKNOWN-o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+15-10-2024 13:00:29.573 [main] [-] INFO  UNKNOWN-o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port 8761 (http)
+15-10-2024 13:00:29.587 [main] [-] INFO  UNKNOWN-o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8761"]
+15-10-2024 13:00:29.590 [main] [-] INFO  UNKNOWN-o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+15-10-2024 13:00:29.591 [main] [-] INFO  UNKNOWN-o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.30]
+15-10-2024 13:00:29.660 [main] [-] INFO  UNKNOWN-o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+15-10-2024 13:00:29.661 [main] [-] INFO  UNKNOWN-o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1690 ms
+15-10-2024 13:00:30.827 [main] [-] INFO  UNKNOWN-c.n.d.p.DiscoveryJerseyProvider.<init> - Using JSON encoding codec LegacyJacksonJson
+15-10-2024 13:00:30.828 [main] [-] INFO  UNKNOWN-c.n.d.p.DiscoveryJerseyProvider.<init> - Using JSON decoding codec LegacyJacksonJson
+15-10-2024 13:00:31.000 [main] [-] INFO  UNKNOWN-c.n.d.p.DiscoveryJerseyProvider.<init> - Using XML encoding codec XStreamXml
+15-10-2024 13:00:31.000 [main] [-] INFO  UNKNOWN-c.n.d.p.DiscoveryJerseyProvider.<init> - Using XML decoding codec XStreamXml
+15-10-2024 13:00:31.907 [main] [-] WARN  UNKNOWN-o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger.afterPropertiesSet - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+15-10-2024 13:00:31.926 [main] [-] INFO  UNKNOWN-o.s.c.n.eureka.InstanceInfoFactory.create - Setting initial instance status as: STARTING
+15-10-2024 13:00:31.947 [main] [-] INFO  UNKNOWN-c.netflix.discovery.DiscoveryClient.<init> - Initializing Eureka in region us-east-1
+15-10-2024 13:00:31.947 [main] [-] INFO  UNKNOWN-c.netflix.discovery.DiscoveryClient.<init> - Client configured to neither register nor query for data.
+15-10-2024 13:00:31.949 [main] [-] INFO  UNKNOWN-c.netflix.discovery.DiscoveryClient.<init> - Discovery Client initialized at timestamp 1728977431948 with initial instances count: 0
+15-10-2024 13:00:31.987 [main] [-] INFO  UNKNOWN-c.n.e.DefaultEurekaServerContext.initialize - Initializing ...
+15-10-2024 13:00:31.989 [main] [-] INFO  UNKNOWN-c.n.eureka.cluster.PeerEurekaNodes.updatePeerEurekaNodes - Adding new peer nodes [http://localhost:8761/eureka/]
+15-10-2024 13:00:32.026 [main] [-] INFO  UNKNOWN-c.n.d.p.DiscoveryJerseyProvider.<init> - Using JSON encoding codec LegacyJacksonJson
+15-10-2024 13:00:32.027 [main] [-] INFO  UNKNOWN-c.n.d.p.DiscoveryJerseyProvider.<init> - Using JSON decoding codec LegacyJacksonJson
+15-10-2024 13:00:32.027 [main] [-] INFO  UNKNOWN-c.n.d.p.DiscoveryJerseyProvider.<init> - Using XML encoding codec XStreamXml
+15-10-2024 13:00:32.027 [main] [-] INFO  UNKNOWN-c.n.d.p.DiscoveryJerseyProvider.<init> - Using XML decoding codec XStreamXml
+15-10-2024 13:00:32.057 [main] [-] INFO  UNKNOWN-c.n.eureka.cluster.PeerEurekaNodes.start - Replica node URL:  http://localhost:8761/eureka/
+15-10-2024 13:00:32.072 [main] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.initRemoteRegionRegistry - Finished initializing remote region registries. All known remote regions: []
+15-10-2024 13:00:32.072 [main] [-] INFO  UNKNOWN-c.n.e.DefaultEurekaServerContext.initialize - Initialized
+15-10-2024 13:00:32.092 [main] [-] INFO  UNKNOWN-o.s.b.a.e.web.EndpointLinksResolver.<init> - Exposing 1 endpoint beneath base path '/actuator'
+15-10-2024 13:00:32.169 [main] [-] INFO  UNKNOWN-o.s.c.n.e.s.EurekaServiceRegistry.register - Registering application UNKNOWN with eureka with status UP
+15-10-2024 13:00:32.171 [main] [-] INFO  UNKNOWN-o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8761"]
+15-10-2024 13:00:32.185 [Thread-9] [-] INFO  UNKNOWN-o.s.c.n.e.s.EurekaServerBootstrap.isAws - isAws returned false
+15-10-2024 13:00:32.186 [Thread-9] [-] INFO  UNKNOWN-o.s.c.n.e.s.EurekaServerBootstrap.initEurekaServerContext - Initialized server context
+15-10-2024 13:00:32.186 [Thread-9] [-] INFO  UNKNOWN-c.n.e.r.PeerAwareInstanceRegistryImpl.openForTraffic - Got 1 instances from neighboring DS node
+15-10-2024 13:00:32.186 [Thread-9] [-] INFO  UNKNOWN-c.n.e.r.PeerAwareInstanceRegistryImpl.openForTraffic - Renew threshold is: 1
+15-10-2024 13:00:32.187 [Thread-9] [-] INFO  UNKNOWN-c.n.e.r.PeerAwareInstanceRegistryImpl.openForTraffic - Changing status to UP
+15-10-2024 13:00:32.189 [Thread-9] [-] INFO  UNKNOWN-o.s.c.n.e.s.EurekaServerInitializerConfiguration.lambda$start$0 - Started Eureka Server
+15-10-2024 13:00:32.195 [main] [-] INFO  UNKNOWN-o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port 8761 (http) with context path '/'
+15-10-2024 13:00:32.196 [main] [-] INFO  UNKNOWN-o.s.c.n.e.s.EurekaAutoServiceRegistration.onApplicationEvent - Updating port to 8761
+15-10-2024 13:00:32.213 [main] [-] INFO  UNKNOWN-c.m.d.DiscoveryServiceApplication.logStarted - Started DiscoveryServiceApplication in 4.89 seconds (process running for 6.642)
+15-10-2024 13:00:32.686 [RMI TCP Connection(2)-192.168.1.2] [-] INFO  UNKNOWN-o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15-10-2024 13:00:32.687 [RMI TCP Connection(2)-192.168.1.2] [-] INFO  UNKNOWN-o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+15-10-2024 13:00:32.689 [RMI TCP Connection(2)-192.168.1.2] [-] INFO  UNKNOWN-o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 2 ms
+15-10-2024 13:00:45.546 [http-nio-8761-exec-2] [670e1a25ef2cc7d392800a3edd162097-2aa869db2ca34186] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 with status UP (replication=false)
+15-10-2024 13:00:46.172 [http-nio-8761-exec-6] [670e1a26d9333ee196b90e283daa476e-96b90e283daa476e] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 with status UP (replication=true)
+15-10-2024 13:01:32.189 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 0ms
+15-10-2024 13:01:39.931 [http-nio-8761-exec-7] [670e1a5b5831026d938e82b178fdd018-8885b202e56fe266] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 with status DOWN (replication=false)
+15-10-2024 13:01:40.458 [http-nio-8761-exec-8] [670e1a5c51d23be3b0b7b52e9551f01b-b0b7b52e9551f01b] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 with status DOWN (replication=true)
+15-10-2024 13:01:43.974 [http-nio-8761-exec-9] [670e1a5f31b1e9ae2211a41e68356196-1180aa9202d0abef] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.internalCancel - Cancelled instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 (replication=false)
+15-10-2024 13:01:44.507 [http-nio-8761-exec-2] [670e1a609369996309902ef9e97f5bef-09902ef9e97f5bef] WARN  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.internalCancel - DS: Registry: cancel failed because Lease is not registered for: CONFIG-SERVER/Ashish.mshome.net:config-server:8888
+15-10-2024 13:01:44.508 [http-nio-8761-exec-2] [670e1a609369996309902ef9e97f5bef-09902ef9e97f5bef] INFO  UNKNOWN-c.n.e.resources.InstanceResource.cancelLease - Not Found (Cancel): CONFIG-SERVER - Ashish.mshome.net:config-server:8888
+15-10-2024 13:01:44.511 [TaskBatchingWorker-target_localhost-2] [-] WARN  UNKNOWN-c.n.eureka.cluster.ReplicationTask.handleFailure - The replication of task CONFIG-SERVER/Ashish.mshome.net:config-server:8888:Cancel@localhost failed with response code 404
+15-10-2024 13:01:44.512 [TaskBatchingWorker-target_localhost-2] [-] WARN  UNKNOWN-c.n.eureka.cluster.PeerEurekaNode.handleFailure - CONFIG-SERVER/Ashish.mshome.net:config-server:8888:Cancel@localhost: missing entry.
+15-10-2024 13:01:50.747 [http-nio-8761-exec-4] [670e1a66b92f716eadec46080d9340ef-d65ccaae73c15e77] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 with status UP (replication=false)
+15-10-2024 13:01:51.261 [http-nio-8761-exec-5] [670e1a6774279ba49249fda5fd9a5e55-9249fda5fd9a5e55] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 with status UP (replication=true)
+15-10-2024 13:02:22.303 [AsyncReporter{ZipkinRestTemplateSender{http://localhost:9411/api/v2/spans}}] [-] WARN  UNKNOWN-z.r.i.AsyncReporter$BoundedAsyncReporter.flush - Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+15-10-2024 13:02:22.304 [AsyncReporter{ZipkinRestTemplateSender{http://localhost:9411/api/v2/spans}}] [-] WARN  UNKNOWN-z.r.i.AsyncReporter$BoundedAsyncReporter.flush - Dropped 1 spans due to ResourceAccessException(I/O error on POST request for "http://localhost:9411/api/v2/spans": Connect to http://localhost:9411 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt)
+org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:9411/api/v2/spans": Connect to http://localhost:9411 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:915)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:895)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:830)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:691)
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinRestTemplateSender.postSpans(ZipkinRestTemplateSender.java:50)
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:69)
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:41)
+	at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123)
+	at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266)
+	at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:9411 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:752)
+	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.lambda$connectSocket$0(PlainConnectionSocketFactory.java:91)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:571)
+	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:90)
+	at org.apache.hc.client5.http.socket.ConnectionSocketFactory.connectSocket(ConnectionSocketFactory.java:123)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:189)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:450)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:162)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:172)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:142)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:152)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:116)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:70)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:889)
+	... 9 common frames omitted
+15-10-2024 13:02:32.189 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 0ms
+15-10-2024 13:02:40.001 [http-nio-8761-exec-9] [670e1a97e093fa60aca3e817c84abeca-c83b45306d3c375c] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 with status DOWN (replication=false)
+15-10-2024 13:02:40.510 [http-nio-8761-exec-1] [670e1a98c8c38d6396917d1ae5ad498b-96917d1ae5ad498b] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 with status DOWN (replication=true)
+15-10-2024 13:02:44.033 [http-nio-8761-exec-10] [670e1a9c69e7f45f288e8047b0001218-acf8a95082ca105d] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.internalCancel - Cancelled instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 (replication=false)
+15-10-2024 13:02:44.562 [http-nio-8761-exec-4] [670e1a9cd7b50683b0bd7b455b688883-b0bd7b455b688883] WARN  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.internalCancel - DS: Registry: cancel failed because Lease is not registered for: CONFIG-SERVER/Ashish.mshome.net:config-server:8888
+15-10-2024 13:02:44.562 [http-nio-8761-exec-4] [670e1a9cd7b50683b0bd7b455b688883-b0bd7b455b688883] INFO  UNKNOWN-c.n.e.resources.InstanceResource.cancelLease - Not Found (Cancel): CONFIG-SERVER - Ashish.mshome.net:config-server:8888
+15-10-2024 13:02:44.565 [TaskBatchingWorker-target_localhost-2] [-] WARN  UNKNOWN-c.n.eureka.cluster.ReplicationTask.handleFailure - The replication of task CONFIG-SERVER/Ashish.mshome.net:config-server:8888:Cancel@localhost failed with response code 404
+15-10-2024 13:02:44.565 [TaskBatchingWorker-target_localhost-2] [-] WARN  UNKNOWN-c.n.eureka.cluster.PeerEurekaNode.handleFailure - CONFIG-SERVER/Ashish.mshome.net:config-server:8888:Cancel@localhost: missing entry.
+15-10-2024 13:02:50.170 [http-nio-8761-exec-3] [670e1aa231297ef57690c73cc4f17092-c17c87cad25378c0] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 with status UP (replication=false)
+15-10-2024 13:02:50.687 [http-nio-8761-exec-7] [670e1aa29397b2a9d337148428d30237-d337148428d30237] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 with status UP (replication=true)
+15-10-2024 13:03:05.139 [http-nio-8761-exec-8] [670e1ab1b5db7d1070fcb2cda7145a49-4e5abdfbb704aec2] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 with status DOWN (replication=false)
+15-10-2024 13:03:05.646 [http-nio-8761-exec-9] [670e1ab1ce8359c39e39b9638090e4d3-9e39b9638090e4d3] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 with status DOWN (replication=true)
+15-10-2024 13:03:08.229 [http-nio-8761-exec-1] [670e1ab43672fb276c1212584b97f083-60de369721c43bff] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.internalCancel - Cancelled instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 (replication=false)
+15-10-2024 13:03:08.735 [http-nio-8761-exec-2] [670e1ab45f0fc16c10622355eb18720c-10622355eb18720c] WARN  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.internalCancel - DS: Registry: cancel failed because Lease is not registered for: CONFIG-SERVER/Ashish.mshome.net:config-server:8888
+15-10-2024 13:03:08.735 [http-nio-8761-exec-2] [670e1ab45f0fc16c10622355eb18720c-10622355eb18720c] INFO  UNKNOWN-c.n.e.resources.InstanceResource.cancelLease - Not Found (Cancel): CONFIG-SERVER - Ashish.mshome.net:config-server:8888
+15-10-2024 13:03:08.737 [TaskBatchingWorker-target_localhost-2] [-] WARN  UNKNOWN-c.n.eureka.cluster.ReplicationTask.handleFailure - The replication of task CONFIG-SERVER/Ashish.mshome.net:config-server:8888:Cancel@localhost failed with response code 404
+15-10-2024 13:03:08.737 [TaskBatchingWorker-target_localhost-2] [-] WARN  UNKNOWN-c.n.eureka.cluster.PeerEurekaNode.handleFailure - CONFIG-SERVER/Ashish.mshome.net:config-server:8888:Cancel@localhost: missing entry.
+15-10-2024 13:03:14.219 [http-nio-8761-exec-5] [670e1aba42f2aeb339030243539b9812-68c2ebf8e5d0771f] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 with status UP (replication=false)
+15-10-2024 13:03:14.728 [http-nio-8761-exec-3] [670e1aba00a53a121050321f7f097857-1050321f7f097857] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CONFIG-SERVER/Ashish.mshome.net:config-server:8888 with status UP (replication=true)
+15-10-2024 13:03:32.199 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 8ms
+15-10-2024 13:03:36.765 [http-nio-8761-exec-8] [670e1ad0b41d92c2fca035f261650a45-fca035f261650a45] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance API-GATEWAY/Ashish.mshome.net:api-gateway with status UP (replication=false)
+15-10-2024 13:03:37.271 [http-nio-8761-exec-9] [670e1ad115d5b699a86ccc3c4b7ee0f2-a86ccc3c4b7ee0f2] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance API-GATEWAY/Ashish.mshome.net:api-gateway with status UP (replication=true)
+15-10-2024 13:03:58.906 [http-nio-8761-exec-4] [670e1ae69debb936d91f469edb5bf271-3f872474bfe139da] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance INVENTORY-SERVICE/Ashish.mshome.net:inventory-service:9010 with status UP (replication=false)
+15-10-2024 13:03:59.420 [http-nio-8761-exec-5] [670e1ae72dc37ee217de2ede846ebdc9-17de2ede846ebdc9] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance INVENTORY-SERVICE/Ashish.mshome.net:inventory-service:9010 with status UP (replication=true)
+15-10-2024 13:04:14.201 [http-nio-8761-exec-1] [670e1af6faac56cd41a9b4705669e6d9-eae152819b89f1e8] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance ORDER-SERVICE/Ashish.mshome.net:order-service:9000 with status UP (replication=false)
+15-10-2024 13:04:14.715 [http-nio-8761-exec-2] [670e1af61f0402f7f12374abca77bd68-f12374abca77bd68] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance ORDER-SERVICE/Ashish.mshome.net:order-service:9000 with status UP (replication=true)
+15-10-2024 13:04:32.199 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 0ms
+15-10-2024 13:04:51.990 [http-nio-8761-exec-5] [670e1b1b83e6ca9c0ee4850d2ec0e34f-8b327ad55fb5e5f9] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance ORDER-SERVICE/Ashish.mshome.net:order-service:9000 with status DOWN (replication=false)
+15-10-2024 13:04:52.498 [http-nio-8761-exec-3] [670e1b1c098103a8a227e7c5b7dbec47-a227e7c5b7dbec47] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance ORDER-SERVICE/Ashish.mshome.net:order-service:9000 with status DOWN (replication=true)
+15-10-2024 13:04:55.533 [http-nio-8761-exec-7] [670e1b1f0a604f2e8176cd4e61516bef-3959d617d1b6af49] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.internalCancel - Cancelled instance ORDER-SERVICE/Ashish.mshome.net:order-service:9000 (replication=false)
+15-10-2024 13:04:56.040 [http-nio-8761-exec-1] [670e1b20a5c2b0aaca51cc3ea07348b5-ca51cc3ea07348b5] WARN  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.internalCancel - DS: Registry: cancel failed because Lease is not registered for: ORDER-SERVICE/Ashish.mshome.net:order-service:9000
+15-10-2024 13:04:56.041 [http-nio-8761-exec-1] [670e1b20a5c2b0aaca51cc3ea07348b5-ca51cc3ea07348b5] INFO  UNKNOWN-c.n.e.resources.InstanceResource.cancelLease - Not Found (Cancel): ORDER-SERVICE - Ashish.mshome.net:order-service:9000
+15-10-2024 13:04:56.044 [TaskBatchingWorker-target_localhost-0] [-] WARN  UNKNOWN-c.n.eureka.cluster.ReplicationTask.handleFailure - The replication of task ORDER-SERVICE/Ashish.mshome.net:order-service:9000:Cancel@localhost failed with response code 404
+15-10-2024 13:04:56.046 [TaskBatchingWorker-target_localhost-0] [-] WARN  UNKNOWN-c.n.eureka.cluster.PeerEurekaNode.handleFailure - ORDER-SERVICE/Ashish.mshome.net:order-service:9000:Cancel@localhost: missing entry.
+15-10-2024 13:05:08.949 [http-nio-8761-exec-8] [670e1b2c6d86a5de6e27a5ecab20f086-37025870f38dd763] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance ORDER-SERVICE/Ashish.mshome.net:order-service:9000 with status UP (replication=false)
+15-10-2024 13:05:09.459 [http-nio-8761-exec-9] [670e1b2d7a35f4579720adae300180cf-9720adae300180cf] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.register - Registered instance ORDER-SERVICE/Ashish.mshome.net:order-service:9000 with status UP (replication=true)
+15-10-2024 13:05:32.200 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 0ms
+15-10-2024 13:06:32.200 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 0ms
+15-10-2024 13:07:32.207 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 7ms
+15-10-2024 13:08:32.208 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 0ms
+15-10-2024 13:09:32.213 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 5ms
+15-10-2024 13:10:32.229 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 16ms
+15-10-2024 13:11:32.234 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 5ms
+15-10-2024 13:12:32.246 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 11ms
+15-10-2024 13:13:32.253 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 7ms
+15-10-2024 13:14:32.253 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 0ms
+15-10-2024 13:15:32.074 [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] [-] INFO  UNKNOWN-c.n.e.r.PeerAwareInstanceRegistryImpl.updateRenewalThreshold - Current renewal threshold is : 8
+15-10-2024 13:15:32.254 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 0ms
+15-10-2024 13:16:32.269 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 15ms
+15-10-2024 13:17:32.273 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 4ms
+15-10-2024 13:18:32.285 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 12ms
+15-10-2024 13:19:32.289 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 3ms
+15-10-2024 13:20:32.302 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 13ms
+15-10-2024 13:21:32.303 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 0ms
+15-10-2024 13:22:32.303 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 0ms
+15-10-2024 13:23:32.304 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 0ms
+15-10-2024 13:24:32.315 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 11ms
+15-10-2024 13:25:32.327 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 11ms
+15-10-2024 13:26:32.328 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 1ms
+15-10-2024 13:27:32.331 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 2ms
+15-10-2024 13:28:32.340 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 9ms
+15-10-2024 13:29:32.341 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 0ms
+15-10-2024 13:30:32.090 [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] [-] INFO  UNKNOWN-c.n.e.r.PeerAwareInstanceRegistryImpl.updateRenewalThreshold - Current renewal threshold is : 8
+15-10-2024 13:30:32.349 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 8ms
+15-10-2024 13:31:32.355 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 5ms
+15-10-2024 13:32:32.365 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 10ms
+15-10-2024 13:33:32.380 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 14ms
+15-10-2024 13:34:32.383 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 3ms
+15-10-2024 13:35:32.393 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 10ms
+15-10-2024 13:36:32.403 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 10ms
+15-10-2024 13:37:32.417 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 13ms
+15-10-2024 13:38:32.417 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 0ms
+15-10-2024 13:39:32.422 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 5ms
+15-10-2024 13:40:32.426 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 3ms
+15-10-2024 13:41:32.434 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 7ms
+15-10-2024 13:42:32.448 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 14ms
+15-10-2024 13:43:32.462 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 13ms
+15-10-2024 13:44:32.471 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 9ms
+15-10-2024 13:45:32.095 [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] [-] INFO  UNKNOWN-c.n.e.r.PeerAwareInstanceRegistryImpl.updateRenewalThreshold - Current renewal threshold is : 8
+15-10-2024 13:45:32.480 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 9ms
+15-10-2024 13:46:32.491 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 11ms
+15-10-2024 13:47:32.492 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 1ms
+15-10-2024 13:48:32.504 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 12ms
+15-10-2024 13:49:32.515 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 10ms
+15-10-2024 13:50:32.525 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 10ms
+15-10-2024 13:51:32.539 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 13ms
+15-10-2024 13:52:32.543 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 3ms
+15-10-2024 13:53:32.554 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 11ms
+15-10-2024 13:54:32.557 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 2ms
+15-10-2024 13:55:32.570 [Eureka-EvictionTimer] [-] INFO  UNKNOWN-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 13ms
+15-10-2024 13:55:52.667 [SpringApplicationShutdownHook] [-] INFO  UNKNOWN-o.s.c.n.e.s.EurekaServiceRegistry.deregister - Unregistering application UNKNOWN with eureka with status DOWN
+15-10-2024 13:55:52.840 [SpringApplicationShutdownHook] [-] INFO  UNKNOWN-o.s.c.n.e.s.EurekaServerBootstrap.contextDestroyed - Shutting down Eureka Server..
+15-10-2024 13:55:52.844 [SpringApplicationShutdownHook] [-] INFO  UNKNOWN-c.n.e.DefaultEurekaServerContext.shutdown - Shutting down ...
+15-10-2024 13:55:52.932 [SpringApplicationShutdownHook] [-] INFO  UNKNOWN-c.n.e.DefaultEurekaServerContext.shutdown - Shut down
+15-10-2024 13:55:52.932 [SpringApplicationShutdownHook] [-] INFO  UNKNOWN-o.s.c.n.e.s.EurekaServerBootstrap.contextDestroyed - Eureka Service is now shutdown...
+15-10-2024 13:55:52.942 [SpringApplicationShutdownHook] [-] INFO  UNKNOWN-c.n.e.DefaultEurekaServerContext.shutdown - Shutting down ...
+15-10-2024 13:55:52.944 [SpringApplicationShutdownHook] [-] INFO  UNKNOWN-c.n.e.DefaultEurekaServerContext.shutdown - Shut down
+15-10-2024 13:55:53.040 [SpringApplicationShutdownHook] [-] INFO  UNKNOWN-c.netflix.discovery.DiscoveryClient.shutdown - Shutting down DiscoveryClient ...
+15-10-2024 13:55:53.040 [SpringApplicationShutdownHook] [-] INFO  UNKNOWN-c.netflix.discovery.DiscoveryClient.shutdown - Completed shut down of DiscoveryClient
