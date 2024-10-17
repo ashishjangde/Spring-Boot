@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: user-service
+  kafka:
+    bootstrap-servers: localhost:9092
+
+  datasource:
+    username: postgres
+    password: manager
+    url: jdbc:postgresql://localhost:5432/dev
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+
+server:
+  port: 7062
+
+
+topic:
+  value: user-random-topic
