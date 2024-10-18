@@ -1,5 +1,6 @@
 package com.microservice.notification_service.consumer;
 
+
 import com.microservice.user_service.event.UserCreatedEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;

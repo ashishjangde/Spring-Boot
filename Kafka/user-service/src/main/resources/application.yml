@@ -5,12 +5,14 @@ spring:
     bootstrap-servers: localhost:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.LongSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      properties:
+        schema.registry.url: http://localhost:8081
 
   datasource:
+    url: jdbc:postgresql://localhost:5432/dev
     username: postgres
     password: manager
-    url: jdbc:postgresql://localhost:5432/dev
   jpa:
     show-sql: true
     hibernate:
@@ -19,10 +21,8 @@ spring:
       hibernate:
         format_sql: true
 
-
 server:
   port: 7062
-
 
 kafka:
   topic:

@@ -1,0 +1,15 @@
+{
+  "name": "UserCreatedEvent",
+  "namespace": "com.microservice.user_service.event",
+  "type": "record",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "email",
+      "type": "string"
+    }
+  ]
+}

@@ -1,20 +1,26 @@
 spring:
-  application:
-    name: notification-service
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
       group-id: ${spring.application.name}
       key-deserializer: org.apache.kafka.common.serialization.LongDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
       properties:
-        spring.json :
-          trusted.packages : com.microservice.*
+        spring.json:
+          trusted.packages: com.microservice.*
+        schema:
+          registry:
+            url: "http://127.0.0.1:8081"
+        specific:
+          avro:
+            reader: "true"
+
+
 
   datasource:
+    url: jdbc:postgresql://localhost:5432/dev
     username: postgres
     password: manager
-    url: jdbc:postgresql://localhost:5432/dev
   jpa:
     show-sql: true
     hibernate:
@@ -22,7 +28,6 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
 
 server:
   port: 7061
