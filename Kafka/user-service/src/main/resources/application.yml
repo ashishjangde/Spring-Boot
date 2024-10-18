@@ -3,6 +3,9 @@ spring:
     name: user-service
   kafka:
     bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.LongSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
   datasource:
     username: postgres
@@ -21,5 +24,7 @@ server:
   port: 7062
 
 
-topic:
-  value: user-random-topic
+kafka:
+  topic:
+    random-topic: user-random-topic
+    user-created: user-created
